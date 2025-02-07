@@ -1,6 +1,6 @@
 CC = cc
 CFLAGS = -Wall -Wextra -Werror
-SRC = main.c
+SRC = src/main.c
 OBJ = $(SRC:.c=.o)
 NAME = so_long
 MLXFLAGS = -lmlx -lX11 -lXext -lm
@@ -11,7 +11,7 @@ $(NAME): $(OBJ)
 	$(CC) $(CFLAGS) $(OBJ) $(MLXFLAGS) -o $(NAME)
 
 %.o: %.c
-	$(CC) -c $< -o $@
+	$(CC) $(CFLAGS) -c $< -o $@
 
 clean:
 	rm -f $(OBJ) $(BOBJ)
