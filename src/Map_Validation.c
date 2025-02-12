@@ -6,45 +6,43 @@
 /*   By: aysadeq <aysadeq@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/10 20:29:35 by aysadeq           #+#    #+#             */
-/*   Updated: 2025/02/12 11:50:44 by aysadeq          ###   ########.fr       */
+/*   Updated: 2025/02/12 13:36:15 by aysadeq          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "so_long.h"
 
-int	is_rectangular(char **map, int rows, int cols)
+int	is_rectangular(t_data *data)
 {
 	int	i;
 	int	len;
 
 	i = 0;
-	while (i < rows)
+	while (i < data->rows)
 	{
-		len = ft_strlen(map[i]);
-		if (len != cols)
+		len = ft_strlen(data->map[i]);
+		if (len != data->cols)
 			return (0);
 		i++;
 	}
 	return (1);
 }
 
-int	is_surrounded_by_walls(char **map, int rows, int cols)
+int	is_surrounded_by_walls(t_data *data)
 {
 	int	i;
 
-	if (rows == 0 || cols == 0 || !map)
-		return (0); 
 	i = 0;
-	while (i < cols)
+	while (i < data->cols)
 	{
-		if (map[0][i] != '1' || map[rows - 1][i] != '1')
+		if (data->map[0][i] != '1' || data->map[data->rows - 1][i] != '1')
 			return (0);
 		i++;
 	}
 	i = 0;
-	while (i < rows)
+	while (i < data->rows)
 	{
-		if (map[i][0] != '1' || map[i][cols - 1] != '1')
+		if (data->map[i][0] != '1' || data->map[i][data->cols - 1] != '1')
 			return (0);
 		i++;
 	}

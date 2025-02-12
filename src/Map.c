@@ -6,7 +6,7 @@
 /*   By: aysadeq <aysadeq@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/10 18:34:05 by aysadeq           #+#    #+#             */
-/*   Updated: 2025/02/12 13:10:16 by aysadeq          ###   ########.fr       */
+/*   Updated: 2025/02/12 13:39:23 by aysadeq          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,21 +59,21 @@ int	count_rows(char *filename)
 	return (rows);
 }
 
-char	**load_map(char *filename, int *rows, int *cols)
+char	**load_map(char *filename, t_data *data)
 {
 	int		fd;
 	char	*line;
 	char	**map;
 	int		i;
 
-	*cols = count_cols(filename);
-	*rows = count_rows(filename);
-	if (*rows == 0 || *cols == 0)
+	data->cols = count_cols(filename);
+	data->rows = count_rows(filename);
+	if (data->rows == 0 || data->cols == 0)
 		return (NULL);
 	fd = open(filename, O_RDONLY);
 	if (fd < 0)
 		return (NULL);
-	map = (char **)malloc((*rows) * (sizeof(char *)));
+	map = (char **)malloc((data->rows) * (sizeof(char *)));
 	if (!map)
 		return (close(fd), NULL);
 	i = 0;

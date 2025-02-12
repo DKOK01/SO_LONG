@@ -39,10 +39,10 @@ char	*ft_strdup(const char *s);
 char	*ft_strjoin(char *s1, char *s2);
 char	*ft_strchr(const char *s, int c);
 
-char	**load_map(char *filename, int *rows, int *cols);
+char	**load_map(char *filename, t_data *data);
 void	print_map(char **map, int rows);
-int		is_rectangular(char **map, int rows, int cols);
-int		is_surrounded_by_walls(char **map, int rows, int cols);
+int		is_rectangular(t_data *data);
+int		is_surrounded_by_walls(t_data *data);
 int		check_map_elements(t_data *data);
 int		check_valid_path(t_data *data);
 void	free_2d_array(char **array, int rows);

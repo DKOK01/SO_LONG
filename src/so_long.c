@@ -6,7 +6,7 @@
 /*   By: aysadeq <aysadeq@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/10 18:32:24 by aysadeq           #+#    #+#             */
-/*   Updated: 2025/02/12 13:09:26 by aysadeq          ###   ########.fr       */
+/*   Updated: 2025/02/12 13:38:47 by aysadeq          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,14 +30,14 @@ void	print_map(char **map, int rows)
 	}
 }
 
-int validate_map(char **map, int rows, int cols, t_data *data)
+int validate_map(t_data *data)
 {
-	if (!is_rectangular(map, rows, cols))
+	if (!is_rectangular(data))
 	{
 		print_error("Error: The map is not rectangular!\n");
 		return (0);
 	}
-	if (!is_surrounded_by_walls(map, rows, cols))
+	if (!is_surrounded_by_walls(data))
 	{
 		print_error("Error: The map is not surrounded by walls!\n");
 		return (0);
@@ -68,7 +68,7 @@ int	main(int ac, char **av)
 	if (ac != 2)
 		return (1);
 
-	data.map = load_map(av[1], &data.rows, &data.cols);
+	data.map = load_map(av[1], &data);
 	data.mlx = mlx_init();
 	data.mlx_win = mlx_new_window(data.mlx, WIDTH, HEIGHT, "DARK SOULS");
 	printf("Rows: %d, Cols: %d\n", data.rows, data.cols);
@@ -77,7 +77,7 @@ int	main(int ac, char **av)
 		print_error("Error: Failed to load map!\n");
 		return (1);
 	}
-	if (!validate_map(data.map, data.rows, data.cols, &data))
+	if (!validate_map(&data))
 	{
 		print_error("Error: Invalid map!\n");
 		free_2d_array(data.map, data.rows);
