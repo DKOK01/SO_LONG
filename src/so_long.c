@@ -6,7 +6,7 @@
 /*   By: aysadeq <aysadeq@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/10 18:32:24 by aysadeq           #+#    #+#             */
-/*   Updated: 2025/02/12 13:38:47 by aysadeq          ###   ########.fr       */
+/*   Updated: 2025/02/13 09:50:08 by aysadeq          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@ void	print_map(char **map, int rows)
 	i = 0;
 	while (i < rows)
 	{
-		printf("%s\n", map[i]);
+		printf("%s", map[i]);
 		i++;
 	}
 }
@@ -33,15 +33,10 @@ void	print_map(char **map, int rows)
 int validate_map(t_data *data)
 {
 	if (!is_rectangular(data))
-	{
-		print_error("Error: The map is not rectangular!\n");
-		return (0);
-	}
+		return (print_error("Error: The map is not rectangular!\n"), 0);
 	if (!is_surrounded_by_walls(data))
-	{
 		print_error("Error: The map is not surrounded by walls!\n");
-		return (0);
-	}
+		return (print_error("Error: The map is not surrounded by walls!\n"), 0);
 	if (!check_map_elements(data))
 	{
 		print_error("Error: The map must have 1 player (P), 1 exit (E), and at least 1 collectible (C)!\n");
@@ -66,8 +61,7 @@ int	main(int ac, char **av)
 	t_data	data;
 
 	if (ac != 2)
-		return (1);
-
+		return (print_error("Error: ./so_long [map.ber]\n"), 1);
 	data.map = load_map(av[1], &data);
 	data.mlx = mlx_init();
 	data.mlx_win = mlx_new_window(data.mlx, WIDTH, HEIGHT, "DARK SOULS");
@@ -84,7 +78,6 @@ int	main(int ac, char **av)
 		return (1);
 	}
 	print_map(data.map, data.rows);
-
 	mlx_key_hook(data.mlx_win, handle_key, 0);
 	mlx_hook(data.mlx_win, 17, 0, &close_window, &data);
 

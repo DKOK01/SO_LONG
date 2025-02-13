@@ -6,7 +6,7 @@
 /*   By: aysadeq <aysadeq@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/10 20:29:35 by aysadeq           #+#    #+#             */
-/*   Updated: 2025/02/12 13:36:15 by aysadeq          ###   ########.fr       */
+/*   Updated: 2025/02/13 09:28:08 by aysadeq          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,6 +21,8 @@ int	is_rectangular(t_data *data)
 	while (i < data->rows)
 	{
 		len = ft_strlen(data->map[i]);
+		if (data->map[i][len - 1] == '\n')
+			len--;
 		if (len != data->cols)
 			return (0);
 		i++;

@@ -11,7 +11,7 @@ $(NAME): $(OBJ)
 	$(CC) $(CFLAGS) $(OBJ) $(MLXFLAGS) -o $(NAME)
 
 %.o: %.c
-	$(CC) $(CFLAGS) -g -c $< -o $@
+	$(CC) $(CFLAGS) -ggdb -c $< -o $@
 
 clean:
 	rm -f $(OBJ) $(BOBJ)

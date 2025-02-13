@@ -6,84 +6,65 @@
 /*   By: aysadeq <aysadeq@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/10 18:34:05 by aysadeq           #+#    #+#             */
-/*   Updated: 2025/02/12 13:39:23 by aysadeq          ###   ########.fr       */
+/*   Updated: 2025/02/13 09:38:18 by aysadeq          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "so_long.h"
 
-int	count_cols(char *filename)
+int get_map_size(char *filename, int *rows, int *cols)
 {
-	char	*line;
 	int		fd;
-	int		cols;
+	char	*line;
 
 	fd = open(filename, O_RDONLY);
 	if (fd < 0)
 		return (0);
+	*rows = 0;
 	line = get_next_line(fd);
-	if (!line)
+	if (line)
+		*cols = ft_strlen(line) - (line[ft_strlen(line) - 1] == '\n');
+	while (line)
 	{
-		close(fd);
-		return (0);
-	}
-	cols = ft_strlen(line);
-	if (line[ft_strlen(line) - 1] == '\n')
-		cols--;
-	free(line);
-	close(fd);
-	return (cols);
-}
-
-int	count_rows(char *filename)
-{
-	char	*line;
-	int		fd;
-	int		rows;
-	int		i;
-
-	fd = open(filename, O_RDONLY);
-	if (fd < 0)
-		return (0);
-	i = 0;
-	line = get_next_line(fd);
-	while (line != NULL)
-	{
-		i++;
+		(*rows)++;
 		free(line);
 		line = get_next_line(fd);
 	}
-	rows = i;
 	close(fd);
-	free(line);
-	return (rows);
+	return (1);
 }
 
-char	**load_map(char *filename, t_data *data)
+char **read_map(char *filename, int rows)
 {
 	int		fd;
-	char	*line;
 	char	**map;
 	int		i;
 
-	data->cols = count_cols(filename);
-	data->rows = count_rows(filename);
-	if (data->rows == 0 || data->cols == 0)
-		return (NULL);
 	fd = open(filename, O_RDONLY);
 	if (fd < 0)
 		return (NULL);
-	map = (char **)malloc((data->rows) * (sizeof(char *)));
+	map = (char **)malloc(sizeof(char *) * (rows + 1));
 	if (!map)
 		return (close(fd), NULL);
 	i = 0;
-	line = get_next_line(fd);
-	while (line != NULL)
+	while (i < rows)
 	{
-		if (line[ft_strlen(line) - 1] == '\n')
-			line[ft_strlen(line) - 1] = '\0';
-		map[i++] = line;
-		line = get_next_line(fd);
+		map[i] = get_next_line(fd);
+		if (!map[i])
+			return (close(fd), free_2d_array(map, i), NULL);
+		i++;
 	}
-	return (close(fd), free(line), map);
+	map[i] = NULL;
+	close(fd);
+	return (map);
+}
+
+char **load_map(char *filename, t_data *data)
+{
+	char	**map;
+
+	if (!get_map_size(filename, &(data->rows), &(data->cols)))
+		return (NULL);
+	map = read_map(filename, data->rows);
+	return (map);
 }
