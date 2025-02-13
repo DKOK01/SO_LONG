@@ -6,13 +6,13 @@
 /*   By: aysadeq <aysadeq@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/10 18:34:05 by aysadeq           #+#    #+#             */
-/*   Updated: 2025/02/13 09:38:18 by aysadeq          ###   ########.fr       */
+/*   Updated: 2025/02/13 10:24:09 by aysadeq          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "so_long.h"
 
-int get_map_size(char *filename, int *rows, int *cols)
+int	get_map_size(char *filename, int *rows, int *cols)
 {
 	int		fd;
 	char	*line;
@@ -34,7 +34,7 @@ int get_map_size(char *filename, int *rows, int *cols)
 	return (1);
 }
 
-char **read_map(char *filename, int rows)
+char	**read_map(char *filename, int rows)
 {
 	int		fd;
 	char	**map;
@@ -59,7 +59,7 @@ char **read_map(char *filename, int rows)
 	return (map);
 }
 
-char **load_map(char *filename, t_data *data)
+char	**load_map(char *filename, t_data *data)
 {
 	char	**map;
 

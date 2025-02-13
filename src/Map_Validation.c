@@ -6,7 +6,7 @@
 /*   By: aysadeq <aysadeq@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/10 20:29:35 by aysadeq           #+#    #+#             */
-/*   Updated: 2025/02/13 09:28:08 by aysadeq          ###   ########.fr       */
+/*   Updated: 2025/02/13 10:24:54 by aysadeq          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -84,6 +84,7 @@ int	check_map_elements(t_data *data)
 		return (0);
 	return (1);
 }
+
 int	check_invalid_chars(t_data *data)
 {
 	int	i;

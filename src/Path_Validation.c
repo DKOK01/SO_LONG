@@ -6,7 +6,7 @@
 /*   By: aysadeq <aysadeq@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/11 13:37:49 by aysadeq           #+#    #+#             */
-/*   Updated: 2025/02/12 10:35:41 by aysadeq          ###   ########.fr       */
+/*   Updated: 2025/02/13 10:33:33 by aysadeq          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,30 +55,17 @@ int	is_valid_path(char **map, int rows, int cols)
 	return (1);
 }
 
-void	flood_fill(char **map, int x, int y, int rows, int cols)
+void	flood_fill(char **map, int x, int y, t_data *data)
 {
-	if (x < 0 || y < 0 || x >= rows || y >= cols)
+	if (x < 0 || y < 0 || x >= data->rows || y >= data->cols)
 		return ;
 	if (map[x][y] == '1' || map[x][y] == 'X')
 		return ;
 	map[x][y] = 'X';
-	flood_fill(map, x + 1, y, rows, cols);
-	flood_fill(map, x - 1, y, rows, cols);
-	flood_fill(map, x, y + 1, rows, cols);
-	flood_fill(map, x, y - 1, rows, cols);
-}
-
-void	free_2d_array(char **array, int rows)
-{
-	int	i;
-
-	i = 0;
-	while (i < rows)
-	{
-		free(array[i]);
-		i++;
-	}
-	free(array);
+	flood_fill(map, x + 1, y, data);
+	flood_fill(map, x - 1, y, data);
+	flood_fill(map, x, y + 1, data);
+	flood_fill(map, x, y - 1, data);
 }
 
 int	check_valid_path(t_data *data)
@@ -102,7 +89,7 @@ int	check_valid_path(t_data *data)
 		i++;
 	}
 	find_player(data);
-	flood_fill(copy, data->player_x, data->player_y, data->rows, data->cols);
+	flood_fill(copy, data->player_x, data->player_y, data);
 	valid = is_valid_path(copy, data->rows, data->cols);
 	free_2d_array(copy, data->rows);
 	return (valid);

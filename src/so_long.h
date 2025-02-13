@@ -32,6 +32,8 @@ typedef struct s_data
 
 int		handle_key(int keycode, void *mlx);
 int		close_window(t_data *data);
+void	print_map(char **map);
+void	free_2d_array(char **array, int rows);
 
 char	*get_next_line(int fd);
 size_t	ft_strlen(const char *s);
@@ -40,12 +42,12 @@ char	*ft_strjoin(char *s1, char *s2);
 char	*ft_strchr(const char *s, int c);
 
 char	**load_map(char *filename, t_data *data);
-void	print_map(char **map, int rows);
+
 int		is_rectangular(t_data *data);
 int		is_surrounded_by_walls(t_data *data);
 int		check_map_elements(t_data *data);
-int		check_valid_path(t_data *data);
-void	free_2d_array(char **array, int rows);
 int		check_invalid_chars(t_data *data);
+
+int		check_valid_path(t_data *data);
 
 #endif
