@@ -6,7 +6,7 @@
 /*   By: aysadeq <aysadeq@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/10 18:32:24 by aysadeq           #+#    #+#             */
-/*   Updated: 2025/02/13 10:36:45 by aysadeq          ###   ########.fr       */
+/*   Updated: 2025/02/13 17:50:38 by aysadeq          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,16 @@ void	print_error(char *msg)
 {
 	while (*msg)
 		write(2, msg++, 1);
+}
+
+int	is_valid_file_extension(char *filename)
+{
+	int	len;
+
+	len = ft_strlen(filename);
+	if (len <= 4 || ft_strcmp(filename + len - 4, ".ber") != 0)
+		return (0);
+	return (1);
 }
 
 void	print_map(char **map)
@@ -56,6 +66,8 @@ int	main(int ac, char **av)
 
 	if (ac != 2)
 		return (print_error("Error: ./so_long [map.ber]\n"), 1);
+	if (!is_valid_file_extension(av[1]))
+		return (print_error("Error: Invalid file: (filename.ber)\n"), 1);
 	data.map = load_map(av[1], &data);
 	printf("Rows: %d, Cols: %d\n", data.rows, data.cols);
 	if (!data.map)
@@ -66,12 +78,14 @@ int	main(int ac, char **av)
 		free_2d_array(data.map, data.rows);
 		return (1);
 	}
-	print_map(data.map);
 	data.mlx = mlx_init();
-	data.mlx_win = mlx_new_window(data.mlx, WIDTH, HEIGHT, "THE LITTLE SPIRIT");
+	data.mlx_win = mlx_new_window(data.mlx, data.cols * TILE_SIZE, data.rows * TILE_SIZE, "THE LITTLE SPIRIT");
+	load_textures(&data);
+	render_map(&data);
 	mlx_key_hook(data.mlx_win, handle_key, 0);
 	mlx_hook(data.mlx_win, 17, 0, &close_window, &data);
 	mlx_loop(data.mlx);
+	free_textures(&data);
 	free_2d_array(data.map, data.rows);
 	return (0);
 }
