@@ -6,7 +6,7 @@
 /*   By: aysadeq <aysadeq@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/13 17:56:40 by aysadeq           #+#    #+#             */
-/*   Updated: 2025/02/14 20:57:41 by aysadeq          ###   ########.fr       */
+/*   Updated: 2025/02/14 20:59:34 by aysadeq          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,7 +54,6 @@ void	render_map(t_data *data)
 {
 	int		x;
 	int		y;
-	char	tile;
 
 	y = 0;
 	while (y < data->rows)
@@ -63,6 +62,7 @@ void	render_map(t_data *data)
 		while (x < data->cols)
 		{
 			put_image_to_window(data, data->map[y][x], x, y);
+			x++;
 		}
 		y++;
 	}
