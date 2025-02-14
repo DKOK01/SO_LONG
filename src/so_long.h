@@ -1,17 +1,29 @@
-#ifndef SO_LONG_H
-#define SO_LONG_H
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   so_long.h                                          :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: aysadeq <aysadeq@student.42.fr>            +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2025/02/14 21:21:22 by aysadeq           #+#    #+#             */
+/*   Updated: 2025/02/14 21:22:52 by aysadeq          ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
 
-#include "mlx.h"
-#include <fcntl.h>
-#include <unistd.h>
-#include <stdlib.h>
-#include <stdio.h>
+#ifndef SO_LONG_H
+# define SO_LONG_H
+
+# include "mlx.h"
+# include <fcntl.h>
+# include <unistd.h>
+# include <stdlib.h>
+# include <stdio.h>
 
 # ifndef BUFFER_SIZE
 #  define BUFFER_SIZE 10000
 # endif
 
-#define TILE_SIZE 32
+# define TILE_SIZE 32
 
 typedef struct s_data
 {
@@ -27,11 +39,11 @@ typedef struct s_data
 	int		exit;
 	int		collectible;
 
-	void    *img_wall;
-    void    *img_floor;
-    void    *img_player;
-    void    *img_collectible;
-    void    *img_exit;
+	void	*img_wall;
+	void	*img_floor;
+	void	*img_player;
+	void	*img_collectible;
+	void	*img_exit;
 
 }	t_data;
 

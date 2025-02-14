@@ -6,7 +6,7 @@
 /*   By: aysadeq <aysadeq@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/10 18:32:24 by aysadeq           #+#    #+#             */
-/*   Updated: 2025/02/14 20:54:46 by aysadeq          ###   ########.fr       */
+/*   Updated: 2025/02/14 21:20:13 by aysadeq          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,18 +26,6 @@ int	is_valid_file_extension(char *filename)
 	if (len <= 4 || ft_strcmp(filename + len - 4, ".ber") != 0)
 		return (0);
 	return (1);
-}
-
-void	print_map(char **map)
-{
-	int	i;
-
-	i = 0;
-	while (map[i])
-	{
-		printf("%s", map[i]);
-		i++;
-	}
 }
 
 int	validate_map(t_data *data)
@@ -60,32 +48,49 @@ int	validate_map(t_data *data)
 	return (1);
 }
 
+void	initialize_game(t_data *data)
+{
+	data->mlx = mlx_init();
+	data->mlx_win = mlx_new_window(data->mlx, data->cols * TILE_SIZE,
+			data->rows * TILE_SIZE, "THE LITTLE SPIRIT");
+	load_textures(data);
+	render_map(data);
+}
+
+int	validate_and_load_map(t_data *data, char *map_file)
+{
+	if (!is_valid_file_extension(map_file))
+		return (print_error("Error: Invalid file: (filename.ber)\n"), 0);
+	data->map = load_map(map_file, data);
+	printf("Rows: %d, Cols: %d\n", data->rows, data->cols);
+	if (!data->map)
+		return (print_error("Error: Failed to load map!\n"), 0);
+	if (!validate_map(data))
+	{
+		print_error("Error: Invalid map!\n");
+		free_2d_array(data->map, data->rows);
+		return (0);
+	}
+	return (1);
+}
+
+void	run_game_loop(t_data *data)
+{
+	mlx_key_hook(data->mlx_win, handle_key, 0);
+	mlx_hook(data->mlx_win, 17, 0, &close_window, data);
+	mlx_loop(data->mlx);
+}
+
 int	main(int ac, char **av)
 {
 	t_data	data;
 
 	if (ac != 2)
 		return (print_error("Error: ./so_long [map.ber]\n"), 1);
-	if (!is_valid_file_extension(av[1]))
-		return (print_error("Error: Invalid file: (filename.ber)\n"), 1);
-	data.map = load_map(av[1], &data);
-	printf("Rows: %d, Cols: %d\n", data.rows, data.cols);
-	if (!data.map)
-		return (print_error("Error: Failed to load map!\n"), 1);
-	if (!validate_map(&data))
-	{
-		print_error("Error: Invalid map!\n");
-		free_2d_array(data.map, data.rows);
+	if (!validate_and_load_map(&data, av[1]))
 		return (1);
-	}
-	data.mlx = mlx_init();
-	data.mlx_win = mlx_new_window(data.mlx, data.cols * TILE_SIZE,
-			data.rows * TILE_SIZE, "THE LITTLE SPIRIT");
-	load_textures(&data);
-	render_map(&data);
-	mlx_key_hook(data.mlx_win, handle_key, 0);
-	mlx_hook(data.mlx_win, 17, 0, &close_window, &data);
-	mlx_loop(data.mlx);
+	initialize_game(&data);
+	run_game_loop(&data);
 	free_textures(&data);
 	free_2d_array(data.map, data.rows);
 	return (0);
