@@ -6,7 +6,7 @@
 /*   By: aysadeq <aysadeq@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/10 18:32:24 by aysadeq           #+#    #+#             */
-/*   Updated: 2025/02/13 17:50:38 by aysadeq          ###   ########.fr       */
+/*   Updated: 2025/02/14 20:54:46 by aysadeq          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -79,7 +79,8 @@ int	main(int ac, char **av)
 		return (1);
 	}
 	data.mlx = mlx_init();
-	data.mlx_win = mlx_new_window(data.mlx, data.cols * TILE_SIZE, data.rows * TILE_SIZE, "THE LITTLE SPIRIT");
+	data.mlx_win = mlx_new_window(data.mlx, data.cols * TILE_SIZE,
+			data.rows * TILE_SIZE, "THE LITTLE SPIRIT");
 	load_textures(&data);
 	render_map(&data);
 	mlx_key_hook(data.mlx_win, handle_key, 0);

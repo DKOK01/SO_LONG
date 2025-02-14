@@ -6,7 +6,7 @@
 /*   By: aysadeq <aysadeq@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/11 13:37:49 by aysadeq           #+#    #+#             */
-/*   Updated: 2025/02/13 19:03:22 by aysadeq          ###   ########.fr       */
+/*   Updated: 2025/02/14 20:35:09 by aysadeq          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -94,4 +94,3 @@ int	check_valid_path(t_data *data)
 	free_2d_array(copy, data->rows);
 	return (valid);
 }
- 
