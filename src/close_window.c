@@ -6,7 +6,7 @@
 /*   By: aysadeq <aysadeq@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/12 09:09:40 by aysadeq           #+#    #+#             */
-/*   Updated: 2025/02/15 10:09:37 by aysadeq          ###   ########.fr       */
+/*   Updated: 2025/02/15 14:36:06 by aysadeq          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,6 +26,11 @@ int close_window(t_data *data)
 	exit(0);
 }
 
+void	print_error(char *msg)
+{
+	while (*msg)
+		write(2, msg++, 1);
+}
 
 void	free_2d_array(char **array, int rows)
 {

@@ -6,29 +6,11 @@
 /*   By: aysadeq <aysadeq@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/10 18:32:24 by aysadeq           #+#    #+#             */
-/*   Updated: 2025/02/15 14:22:19 by aysadeq          ###   ########.fr       */
+/*   Updated: 2025/02/15 14:44:02 by aysadeq          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "so_long.h"
-
-void	print_map(char **map, int rows)
-{
-	int	i;
-
-	i = 0;
-	while (i < rows)
-	{
-		printf("%s", map[i]);
-		i++;
-	}
-}
-
-void	print_error(char *msg)
-{
-	while (*msg)
-		write(2, msg++, 1);
-}
 
 int	is_valid_file_extension(char *filename)
 {
@@ -74,7 +56,6 @@ int	validate_and_load_map(t_data *data, char *map_file)
 	if (!is_valid_file_extension(map_file))
 		return (print_error("Error: Invalid file: (filename.ber)\n"), 0);
 	data->map = load_map(map_file, data);
-	printf("Rows: %d, Cols: %d\n", data->rows, data->cols);
 	if (!data->map)
 		return (print_error("Error: Failed to load map!\n"), 0);
 	if (!validate_map(data))
