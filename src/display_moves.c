@@ -6,13 +6,13 @@
 /*   By: aysadeq <aysadeq@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/15 15:25:07 by aysadeq           #+#    #+#             */
-/*   Updated: 2025/02/15 15:30:04 by aysadeq          ###   ########.fr       */
+/*   Updated: 2025/02/15 16:01:35 by aysadeq          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "so_long.h"
 
-char *ft_itoa(int n)
+char	*ft_itoa(int n)
 {
 	char	*str;
 	int		len;
@@ -20,8 +20,12 @@ char *ft_itoa(int n)
 
 	nbr = n;
 	len = 1;
-	while (nbr /= 10)
+	nbr /= 10;
+	while (nbr)
+	{
+		nbr /= 10;
 		len++;
+	}
 	str = (char *)malloc(sizeof(char) * (len + 1));
 	if (!str)
 		return (NULL);
