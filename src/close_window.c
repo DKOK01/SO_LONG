@@ -6,25 +6,26 @@
 /*   By: aysadeq <aysadeq@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/12 09:09:40 by aysadeq           #+#    #+#             */
-/*   Updated: 2025/02/14 21:17:26 by aysadeq          ###   ########.fr       */
+/*   Updated: 2025/02/15 10:09:37 by aysadeq          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "so_long.h"
 
-int	handle_key(int keycode, void *mlx)
+int close_window(t_data *data)
 {
-	(void)mlx;
-	if (keycode == 65307)
-		exit(0);
-	return (0);
-}
+	if (data->mlx_win)
+		mlx_destroy_window(data->mlx, data->mlx_win);
 
-int	close_window(t_data *data)
-{
-	mlx_destroy_window(data->mlx, data->mlx_win);
+	free_textures(data);
+
+	free_2d_array(data->map, data->rows);
+	mlx_destroy_display(data->mlx);
+	free(data->mlx);
+
 	exit(0);
 }
+
 
 void	free_2d_array(char **array, int rows)
 {

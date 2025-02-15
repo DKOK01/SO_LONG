@@ -6,11 +6,23 @@
 /*   By: aysadeq <aysadeq@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/10 18:32:24 by aysadeq           #+#    #+#             */
-/*   Updated: 2025/02/14 21:20:13 by aysadeq          ###   ########.fr       */
+/*   Updated: 2025/02/15 11:53:23 by aysadeq          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "so_long.h"
+
+void	print_map(char **map, int rows)
+{
+	int	i;
+
+	i = 0;
+	while (i < rows)
+	{
+		printf("%s", map[i]);
+		i++;
+	}
+}
 
 void	print_error(char *msg)
 {
@@ -76,8 +88,8 @@ int	validate_and_load_map(t_data *data, char *map_file)
 
 void	run_game_loop(t_data *data)
 {
-	mlx_key_hook(data->mlx_win, handle_key, 0);
-	mlx_hook(data->mlx_win, 17, 0, &close_window, data);
+	mlx_hook(data->mlx_win, 2, 1L << 0, handle_key, data);
+	mlx_hook(data->mlx_win, 17, 0, close_window, data);
 	mlx_loop(data->mlx);
 }
 

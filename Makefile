@@ -1,6 +1,6 @@
 CC = cc
 CFLAGS = -Wall -Wextra -Werror
-SRC = src/so_long.c src/close_window.c src/Map.c src/Map_Validation.c src/get_next_line.c src/get_next_line_utils.c src/Path_Validation.c src/render_map.c
+SRC = src/so_long.c src/close_window.c src/Map.c src/Map_Validation.c src/get_next_line.c src/get_next_line_utils.c src/Path_Validation.c src/render_map.c src/player_movement.c
 OBJ = $(SRC:.c=.o)
 NAME = so_long
 MLXFLAGS = -lmlx -lX11 -lXext -lm

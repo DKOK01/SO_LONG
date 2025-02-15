@@ -6,7 +6,7 @@
 /*   By: aysadeq <aysadeq@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/14 21:21:22 by aysadeq           #+#    #+#             */
-/*   Updated: 2025/02/14 21:22:52 by aysadeq          ###   ########.fr       */
+/*   Updated: 2025/02/15 11:42:16 by aysadeq          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,6 +24,16 @@
 # endif
 
 # define TILE_SIZE 32
+# define KEY_W 119
+# define KEY_A 97
+# define KEY_S 115
+# define KEY_D 100
+# define KEY_ESC 65307
+# define ARROW_UP 65362
+# define ARROW_DOWN 65364
+# define ARROW_LEFT 65361
+# define ARROW_RIGHT 65363
+
 
 typedef struct s_data
 {
@@ -47,11 +57,11 @@ typedef struct s_data
 
 }	t_data;
 
-int		handle_key(int keycode, void *mlx);
+int		handle_key(int keycode, t_data *data);
 int		close_window(t_data *data);
-void	print_map(char **map);
 void	free_2d_array(char **array, int rows);
 void	print_error(char *msg);
+void	print_map(char **map, int rows);
 
 char	*get_next_line(int fd);
 size_t	ft_strlen(const char *s);

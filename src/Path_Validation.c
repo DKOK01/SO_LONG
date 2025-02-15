@@ -6,7 +6,7 @@
 /*   By: aysadeq <aysadeq@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/11 13:37:49 by aysadeq           #+#    #+#             */
-/*   Updated: 2025/02/14 20:35:09 by aysadeq          ###   ########.fr       */
+/*   Updated: 2025/02/15 12:15:42 by aysadeq          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,8 +25,8 @@ void	find_player(t_data *data)
 		{
 			if (data->map[i][j] == 'P')
 			{
-				data->player_x = i;
-				data->player_y = j;
+				data->player_x = j;
+				data->player_y = i;
 				return ;
 			}
 			j++;
@@ -89,7 +89,7 @@ int	check_valid_path(t_data *data)
 		i++;
 	}
 	find_player(data);
-	flood_fill(copy, data->player_x, data->player_y, data);
+	flood_fill(copy, data->player_y, data->player_x, data);
 	valid = is_valid_path(copy, data->rows, data->cols);
 	free_2d_array(copy, data->rows);
 	return (valid);
