@@ -6,7 +6,7 @@
 /*   By: aysadeq <aysadeq@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/14 21:21:22 by aysadeq           #+#    #+#             */
-/*   Updated: 2025/02/15 12:30:25 by aysadeq          ###   ########.fr       */
+/*   Updated: 2025/02/15 14:01:38 by aysadeq          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,12 +48,12 @@ typedef struct s_data
 	int		player;
 	int		exit;
 	int		collectible;
-
 	void	*img_wall;
 	void	*img_floor;
 	void	*img_player;
 	void	*img_collectible;
 	void	*img_exit;
+	int		player_on_exit;
 
 }	t_data;
 
