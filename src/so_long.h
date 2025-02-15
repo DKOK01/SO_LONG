@@ -6,7 +6,7 @@
 /*   By: aysadeq <aysadeq@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/14 21:21:22 by aysadeq           #+#    #+#             */
-/*   Updated: 2025/02/15 14:43:28 by aysadeq          ###   ########.fr       */
+/*   Updated: 2025/02/15 14:47:08 by aysadeq          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -77,6 +77,7 @@ int		is_rectangular(t_data *data);
 int		is_surrounded_by_walls(t_data *data);
 int		check_map_elements(t_data *data);
 int		check_invalid_chars(t_data *data);
+int		is_valid_file_extension(char *filename);
 // path finding functions
 int		check_valid_path(t_data *data);
 // rendering functions

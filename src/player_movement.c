@@ -6,7 +6,7 @@
 /*   By: aysadeq <aysadeq@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/15 13:20:45 by aysadeq           #+#    #+#             */
-/*   Updated: 2025/02/15 14:31:26 by aysadeq          ###   ########.fr       */
+/*   Updated: 2025/02/15 14:59:53 by aysadeq          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,7 +52,7 @@ void	move_player(t_data *data, int new_x, int new_y)
 	render_map(data);
 }
 
-int handle_key(int keycode, t_data *data)
+int	handle_key(int keycode, t_data *data)
 {
 	if (keycode == KEY_W || keycode == ARROW_UP)
 		move_player(data, data->player_x, data->player_y - 1);

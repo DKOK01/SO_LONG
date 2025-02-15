@@ -6,21 +6,11 @@
 /*   By: aysadeq <aysadeq@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/10 18:32:24 by aysadeq           #+#    #+#             */
-/*   Updated: 2025/02/15 14:44:02 by aysadeq          ###   ########.fr       */
+/*   Updated: 2025/02/15 14:46:06 by aysadeq          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "so_long.h"
-
-int	is_valid_file_extension(char *filename)
-{
-	int	len;
-
-	len = ft_strlen(filename);
-	if (len <= 4 || ft_strcmp(filename + len - 4, ".ber") != 0)
-		return (0);
-	return (1);
-}
 
 int	validate_map(t_data *data)
 {
