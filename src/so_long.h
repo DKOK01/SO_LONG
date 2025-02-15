@@ -6,7 +6,7 @@
 /*   By: aysadeq <aysadeq@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/14 21:21:22 by aysadeq           #+#    #+#             */
-/*   Updated: 2025/02/15 14:47:08 by aysadeq          ###   ########.fr       */
+/*   Updated: 2025/02/15 15:31:27 by aysadeq          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,6 +57,7 @@ typedef struct s_data
 	void	*img_exit;
 
 	int		player_on_exit;
+	int		move_count;
 
 }	t_data;
 
@@ -86,5 +87,6 @@ void	render_map(t_data *data);
 void	free_textures(t_data *data);
 // player movement functions
 int		handle_key(int keycode, t_data *data);
+void	display_moves(t_data *data);
 
 #endif

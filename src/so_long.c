@@ -6,7 +6,7 @@
 /*   By: aysadeq <aysadeq@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/10 18:32:24 by aysadeq           #+#    #+#             */
-/*   Updated: 2025/02/15 14:46:06 by aysadeq          ###   ########.fr       */
+/*   Updated: 2025/02/15 15:27:54 by aysadeq          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,6 +59,7 @@ int	validate_and_load_map(t_data *data, char *map_file)
 
 void	run_game_loop(t_data *data)
 {
+	data->move_count = 0;
 	data->player_on_exit = 0;
 	mlx_hook(data->mlx_win, 2, 1L << 0, handle_key, data);
 	mlx_hook(data->mlx_win, 17, 0, close_window, data);
