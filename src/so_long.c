@@ -6,7 +6,7 @@
 /*   By: aysadeq <aysadeq@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/10 18:32:24 by aysadeq           #+#    #+#             */
-/*   Updated: 2025/02/15 15:27:54 by aysadeq          ###   ########.fr       */
+/*   Updated: 2025/02/16 10:03:40 by aysadeq          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,7 +48,7 @@ int	validate_and_load_map(t_data *data, char *map_file)
 	data->map = load_map(map_file, data);
 	if (!data->map)
 		return (print_error("Error: Failed to load map!\n"), 0);
-	if (!validate_map(data))
+	if (!data->map[0] || !validate_map(data))
 	{
 		print_error("Error: Invalid map!\n");
 		free_2d_array(data->map, data->rows);
