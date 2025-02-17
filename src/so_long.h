@@ -6,7 +6,7 @@
 /*   By: aysadeq <aysadeq@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/14 21:21:22 by aysadeq           #+#    #+#             */
-/*   Updated: 2025/02/17 13:41:14 by aysadeq          ###   ########.fr       */
+/*   Updated: 2025/02/17 14:39:41 by aysadeq          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,9 +46,6 @@ typedef struct s_data
 
 	int		player_x;
 	int		player_y;
-
-	int		enemy_x;
-	int		enemy_y;
 
 	int		player;
 	int		exit;
@@ -95,5 +92,6 @@ int		handle_key(int keycode, t_data *data);
 void	display_moves(t_data *data);
 
 int		move_all_enemies(t_data *data);
+
 
 #endif
