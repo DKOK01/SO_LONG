@@ -6,7 +6,7 @@
 /*   By: aysadeq <aysadeq@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/15 13:20:45 by aysadeq           #+#    #+#             */
-/*   Updated: 2025/02/17 12:09:16 by aysadeq          ###   ########.fr       */
+/*   Updated: 2025/02/17 13:47:37 by aysadeq          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,6 +34,11 @@ void	check_new_tile(t_data *data, int new_x, int new_y)
 	if (data->map[new_y][new_x] == 'E' && data->collectible == 0)
 	{
 		print_error("Congratulations! You won!\n");
+		close_window(data);
+	}
+	if (data->map[new_y][new_x] == 'X')
+	{
+		print_error("Game Over! You lost!\n");
 		close_window(data);
 	}
 }
