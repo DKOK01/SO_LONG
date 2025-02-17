@@ -6,7 +6,7 @@
 /*   By: aysadeq <aysadeq@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/14 21:21:22 by aysadeq           #+#    #+#             */
-/*   Updated: 2025/02/17 15:40:27 by aysadeq          ###   ########.fr       */
+/*   Updated: 2025/02/17 16:17:53 by aysadeq          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,7 +38,6 @@ typedef struct s_data
 {
 	void	*mlx;
 	void	*mlx_win;
-	void	*img;
 
 	char	**map;
 	int		rows;
@@ -54,9 +53,13 @@ typedef struct s_data
 	void	*img_enemy;
 	void	*img_wall;
 	void	*img_floor;
-	void	*img_player;
 	void	*img_collectible;
-	void	*img_exit;
+	void	*img_player_right;
+	void	*img_player_left;
+	void	*img_exit_closed;
+	void	*img_exit_open;
+	
+	int		player_facing_right;
 
 	int		player_on_exit;
 	int		move_count;

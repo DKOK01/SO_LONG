@@ -6,7 +6,7 @@
 /*   By: aysadeq <aysadeq@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/10 18:32:24 by aysadeq           #+#    #+#             */
-/*   Updated: 2025/02/17 14:36:30 by aysadeq          ###   ########.fr       */
+/*   Updated: 2025/02/17 16:15:54 by aysadeq          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,6 +61,7 @@ void	run_game_loop(t_data *data)
 {
 	data->move_count = 0;
 	data->player_on_exit = 0;
+	data->player_facing_right = 1;
 	mlx_hook(data->mlx_win, 2, 1L << 0, handle_key, data);
 	mlx_hook(data->mlx_win, 17, 0, close_window, data);
 	mlx_loop(data->mlx);
