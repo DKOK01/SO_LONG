@@ -6,7 +6,7 @@
 /*   By: aysadeq <aysadeq@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/14 21:21:22 by aysadeq           #+#    #+#             */
-/*   Updated: 2025/02/17 14:39:41 by aysadeq          ###   ########.fr       */
+/*   Updated: 2025/02/17 15:40:27 by aysadeq          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -90,8 +90,5 @@ void	free_textures(t_data *data);
 // player movement functions
 int		handle_key(int keycode, t_data *data);
 void	display_moves(t_data *data);
-
-int		move_all_enemies(t_data *data);
-
 
 #endif

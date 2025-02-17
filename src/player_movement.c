@@ -6,7 +6,7 @@
 /*   By: aysadeq <aysadeq@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/15 13:20:45 by aysadeq           #+#    #+#             */
-/*   Updated: 2025/02/17 14:35:28 by aysadeq          ###   ########.fr       */
+/*   Updated: 2025/02/17 15:38:47 by aysadeq          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,7 +55,6 @@ void	move_player(t_data *data, int new_x, int new_y)
 	data->player_y = new_y;
 	data->map[new_y][new_x] = 'P';
 	data->move_count++;
-	move_all_enemies(data);
 	render_map(data);
 	display_moves(data);
 }
