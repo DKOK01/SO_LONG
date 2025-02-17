@@ -6,7 +6,7 @@
 /*   By: aysadeq <aysadeq@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/13 17:56:40 by aysadeq           #+#    #+#             */
-/*   Updated: 2025/02/15 10:28:40 by aysadeq          ###   ########.fr       */
+/*   Updated: 2025/02/17 09:10:54 by aysadeq          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,6 +29,9 @@ void	load_textures(t_data *data)
 			"textures/Collectible.xpm", &w, &h);
 	data->img_exit = mlx_xpm_file_to_image(data->mlx,
 			"textures/Exit.xpm", &w, &h);
+	data->img_enemy = mlx_xpm_file_to_image(data->mlx,
+			"textures/Enemy.xpm", &w, &h);
+
 }
 
 void	put_image_to_window(t_data *data, char tile, int x, int y)
@@ -48,6 +51,10 @@ void	put_image_to_window(t_data *data, char tile, int x, int y)
 	else if (tile == 'E')
 		mlx_put_image_to_window(data->mlx, data->mlx_win,
 			data->img_exit, x * TILE_SIZE, y * TILE_SIZE);
+	else if (tile == 'X')
+		mlx_put_image_to_window(data->mlx, data->mlx_win,
+			data->img_enemy, x * TILE_SIZE, y * TILE_SIZE);
+
 }
 
 void	render_map(t_data *data)
@@ -80,4 +87,6 @@ void	free_textures(t_data *data)
 		mlx_destroy_image(data->mlx, data->img_collectible);
 	if (data->img_exit)
 		mlx_destroy_image(data->mlx, data->img_exit);
+	if (data->img_enemy)
+		mlx_destroy_image(data->mlx, data->img_enemy);
 }

@@ -6,7 +6,7 @@
 /*   By: aysadeq <aysadeq@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/14 21:21:22 by aysadeq           #+#    #+#             */
-/*   Updated: 2025/02/15 15:31:27 by aysadeq          ###   ########.fr       */
+/*   Updated: 2025/02/17 13:22:35 by aysadeq          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,7 @@
 # include <fcntl.h>
 # include <unistd.h>
 # include <stdlib.h>
+# include <stdio.h>
 
 # ifndef BUFFER_SIZE
 #  define BUFFER_SIZE 10000
@@ -46,10 +47,14 @@ typedef struct s_data
 	int		player_x;
 	int		player_y;
 
+	int		enemy_x;
+	int		enemy_y;
+
 	int		player;
 	int		exit;
 	int		collectible;
 
+	void	*img_enemy;
 	void	*img_wall;
 	void	*img_floor;
 	void	*img_player;
@@ -88,5 +93,7 @@ void	free_textures(t_data *data);
 // player movement functions
 int		handle_key(int keycode, t_data *data);
 void	display_moves(t_data *data);
+
+int	move_enemy(t_data *data);
 
 #endif

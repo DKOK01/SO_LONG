@@ -6,7 +6,7 @@
 /*   By: aysadeq <aysadeq@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/11 13:37:49 by aysadeq           #+#    #+#             */
-/*   Updated: 2025/02/15 18:08:45 by aysadeq          ###   ########.fr       */
+/*   Updated: 2025/02/17 13:29:58 by aysadeq          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -82,10 +82,7 @@ int	check_valid_path(t_data *data)
 	{
 		copy[i] = ft_strdup(data->map[i]);
 		if (!copy[i])
-		{
-			free_2d_array(copy, i);
-			return (0);
-		}
+			return (free_2d_array(copy, i), 0);
 		i++;
 	}
 	find_player(data);

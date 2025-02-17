@@ -6,7 +6,7 @@
 /*   By: aysadeq <aysadeq@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/10 20:29:35 by aysadeq           #+#    #+#             */
-/*   Updated: 2025/02/16 10:02:35 by aysadeq          ###   ########.fr       */
+/*   Updated: 2025/02/17 09:12:41 by aysadeq          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -98,7 +98,7 @@ int	check_invalid_chars(t_data *data)
 		{
 			if (data->map[i][j] != '0' && data->map[i][j] != '1' &&
 				data->map[i][j] != 'P' && data->map[i][j] != 'E' &&
-				data->map[i][j] != 'C')
+				data->map[i][j] != 'C' && data->map[i][j] != 'X')
 				return (0);
 			j++;
 		}
