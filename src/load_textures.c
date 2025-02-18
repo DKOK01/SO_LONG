@@ -6,7 +6,7 @@
 /*   By: aysadeq <aysadeq@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/18 14:43:43 by aysadeq           #+#    #+#             */
-/*   Updated: 2025/02/18 14:55:53 by aysadeq          ###   ########.fr       */
+/*   Updated: 2025/02/18 18:21:47 by aysadeq          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,6 +60,16 @@ void	load_textures(t_data *data)
 {
 	load_static_textures(data);
 	load_collectible_textures(data);
+	if (!data->img_wall || !data->img_floor || !data->img_player_left
+		|| !data->img_exit_closed || !data->img_enemy || !data->img_player_right
+		|| !data->img_exit_open || !data->img_collectibles[0]
+		|| !data->img_collectibles[1] || !data->img_collectibles[2]
+		|| !data->img_collectibles[3] || !data->img_collectibles[4]
+		|| !data->img_collectibles[5])
+	{
+		print_error("Error\nTextures not loaded\n");
+		close_window(data);
+	}
 	data->collectible_frame = 0;
 	data->animation_counter = 0;
 }
