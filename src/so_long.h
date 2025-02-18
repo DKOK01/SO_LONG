@@ -6,7 +6,7 @@
 /*   By: aysadeq <aysadeq@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/14 21:21:22 by aysadeq           #+#    #+#             */
-/*   Updated: 2025/02/18 09:23:44 by aysadeq          ###   ########.fr       */
+/*   Updated: 2025/02/18 10:31:40 by aysadeq          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,7 +58,9 @@ typedef struct s_data
 	void	*img_exit_closed;
 	void	*img_exit_open;
 	void	*img_collectibles[6];
+
 	int		collectible_frame;
+	int		animation_counter;
 
 	int		player_facing_right;
 
@@ -88,7 +90,7 @@ int		is_valid_file_extension(char *filename);
 // path finding functions
 int		check_valid_path(t_data *data);
 // rendering functions
-int		update_collectibles(t_data *data);
+int		update_animation(t_data *data);
 void	load_textures(t_data *data);
 void	render_map(t_data *data);
 void	free_textures(t_data *data);

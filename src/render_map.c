@@ -6,18 +6,22 @@
 /*   By: aysadeq <aysadeq@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/13 17:56:40 by aysadeq           #+#    #+#             */
-/*   Updated: 2025/02/18 09:35:13 by aysadeq          ###   ########.fr       */
+/*   Updated: 2025/02/18 10:32:31 by aysadeq          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "so_long.h"
 
-int	update_collectibles(t_data *data)
+int	update_animation(t_data *data)
 {
-	data->collectible_frame++;
-	if (data->collectible_frame > 5)
-		data->collectible_frame = 0;
-	return (1);
+	display_moves(data);
+	data->animation_counter++;
+	if (data->animation_counter % 10000 == 0)
+	{
+		data->collectible_frame = (data->collectible_frame + 1) % 6;
+		render_map(data);
+	}
+	return (0);
 }
 
 void	load_textures(t_data *data)
@@ -41,6 +45,7 @@ void	load_textures(t_data *data)
 	data->img_collectibles[4] = mlx_xpm_file_to_image(data->mlx, "textures/coin5.xpm", &w, &h);
 	data->img_collectibles[5] = mlx_xpm_file_to_image(data->mlx, "textures/coin6.xpm", &w, &h);
 	data->collectible_frame = 0;
+	data->animation_counter = 0;
 }
 
 void	put_image_to_window(t_data *data, char tile, int x, int y)
@@ -93,7 +98,6 @@ void	render_map(t_data *data)
 
 void	free_textures(t_data *data)
 {
-
 	if (data->img_wall)
 		mlx_destroy_image(data->mlx, data->img_wall);
 	if (data->img_floor)
