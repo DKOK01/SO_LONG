@@ -6,7 +6,7 @@
 /*   By: aysadeq <aysadeq@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/13 17:56:40 by aysadeq           #+#    #+#             */
-/*   Updated: 2025/02/18 10:32:31 by aysadeq          ###   ########.fr       */
+/*   Updated: 2025/02/18 11:22:51 by aysadeq          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@ int	update_animation(t_data *data)
 {
 	display_moves(data);
 	data->animation_counter++;
-	if (data->animation_counter % 10000 == 0)
+	if (data->animation_counter % 9000 == 0)
 	{
 		data->collectible_frame = (data->collectible_frame + 1) % 6;
 		render_map(data);
