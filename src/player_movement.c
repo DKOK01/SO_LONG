@@ -6,7 +6,7 @@
 /*   By: aysadeq <aysadeq@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/15 13:20:45 by aysadeq           #+#    #+#             */
-/*   Updated: 2025/02/17 16:14:22 by aysadeq          ###   ########.fr       */
+/*   Updated: 2025/02/17 16:54:29 by aysadeq          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,9 +50,9 @@ void	move_player(t_data *data, int new_x, int new_y)
 	if (data->map[new_y][new_x] == '1')
 		return ;
 	if (new_x > data->player_x)
-		data->player_facing_right = 1; // Player moving right
+		data->player_facing_right = 0;
 	else if (new_x < data->player_x)
-		data->player_facing_right = 0; // Player moving left
+		data->player_facing_right = 1;
 	update_previous_tile(data);
 	check_new_tile(data, new_x, new_y);
 	data->player_x = new_x;

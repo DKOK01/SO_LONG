@@ -6,7 +6,7 @@
 /*   By: aysadeq <aysadeq@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/10 18:32:24 by aysadeq           #+#    #+#             */
-/*   Updated: 2025/02/17 16:15:54 by aysadeq          ###   ########.fr       */
+/*   Updated: 2025/02/18 09:22:20 by aysadeq          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,6 +37,7 @@ void	initialize_game(t_data *data)
 	data->mlx = mlx_init();
 	data->mlx_win = mlx_new_window(data->mlx, data->cols * TILE_SIZE,
 			data->rows * TILE_SIZE, "THE LITTLE SPIRIT");
+	data->player_facing_right = 1;
 	load_textures(data);
 	render_map(data);
 }
@@ -61,9 +62,10 @@ void	run_game_loop(t_data *data)
 {
 	data->move_count = 0;
 	data->player_on_exit = 0;
-	data->player_facing_right = 1;
+	data->collectible_frame = 0;
 	mlx_hook(data->mlx_win, 2, 1L << 0, handle_key, data);
 	mlx_hook(data->mlx_win, 17, 0, close_window, data);
+	mlx_loop_hook(data->mlx, update_collectibles, &data);
 	mlx_loop(data->mlx);
 }
 
