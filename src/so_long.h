@@ -6,7 +6,7 @@
 /*   By: aysadeq <aysadeq@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/14 21:21:22 by aysadeq           #+#    #+#             */
-/*   Updated: 2025/02/18 12:25:17 by aysadeq          ###   ########.fr       */
+/*   Updated: 2025/02/18 15:10:58 by aysadeq          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,6 @@
 # include <fcntl.h>
 # include <unistd.h>
 # include <stdlib.h>
-# include <stdio.h>
 
 # ifndef BUFFER_SIZE
 #  define BUFFER_SIZE 10000
@@ -38,18 +37,14 @@ typedef struct s_data
 {
 	void	*mlx;
 	void	*mlx_win;
-
 	char	**map;
 	int		rows;
 	int		cols;
-
 	int		player_x;
 	int		player_y;
-
 	int		player;
 	int		exit;
 	int		collectible;
-
 	void	*img_enemy;
 	void	*img_wall;
 	void	*img_floor;
@@ -58,12 +53,9 @@ typedef struct s_data
 	void	*img_exit_closed;
 	void	*img_exit_open;
 	void	*img_collectibles[6];
-
 	int		collectible_frame;
 	int		animation_counter;
-
 	int		player_facing_right;
-
 	int		player_on_exit;
 	int		move_count;
 
