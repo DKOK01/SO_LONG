@@ -6,7 +6,7 @@
 /*   By: aysadeq <aysadeq@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/13 17:56:40 by aysadeq           #+#    #+#             */
-/*   Updated: 2025/02/18 09:24:16 by aysadeq          ###   ########.fr       */
+/*   Updated: 2025/02/18 09:35:13 by aysadeq          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,6 +40,7 @@ void	load_textures(t_data *data)
 	data->img_collectibles[3] = mlx_xpm_file_to_image(data->mlx, "textures/coin4.xpm", &w, &h);
 	data->img_collectibles[4] = mlx_xpm_file_to_image(data->mlx, "textures/coin5.xpm", &w, &h);
 	data->img_collectibles[5] = mlx_xpm_file_to_image(data->mlx, "textures/coin6.xpm", &w, &h);
+	data->collectible_frame = 0;
 }
 
 void	put_image_to_window(t_data *data, char tile, int x, int y)
