@@ -6,7 +6,7 @@
 /*   By: aysadeq <aysadeq@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/14 21:21:22 by aysadeq           #+#    #+#             */
-/*   Updated: 2025/02/18 10:31:40 by aysadeq          ###   ########.fr       */
+/*   Updated: 2025/02/18 12:25:17 by aysadeq          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,7 +52,7 @@ typedef struct s_data
 
 	void	*img_enemy;
 	void	*img_wall;
-	void	*img_floor;;
+	void	*img_floor;
 	void	*img_player_right;
 	void	*img_player_left;
 	void	*img_exit_closed;

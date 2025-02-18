@@ -6,7 +6,7 @@
 /*   By: aysadeq <aysadeq@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/10 18:34:05 by aysadeq           #+#    #+#             */
-/*   Updated: 2025/02/16 09:50:31 by aysadeq          ###   ########.fr       */
+/*   Updated: 2025/02/18 14:36:32 by aysadeq          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,6 +54,7 @@ char	**read_map(char *filename, int rows)
 			return (close(fd), free_2d_array(map, i), NULL);
 		i++;
 	}
+	get_next_line(-1);
 	map[i] = NULL;
 	close(fd);
 	return (map);

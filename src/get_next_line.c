@@ -6,7 +6,7 @@
 /*   By: aysadeq <aysadeq@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/12 09:12:08 by aysadeq           #+#    #+#             */
-/*   Updated: 2025/02/12 17:45:58 by aysadeq          ###   ########.fr       */
+/*   Updated: 2025/02/18 14:38:52 by aysadeq          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -91,8 +91,8 @@ char	*get_next_line(int fd)
 	static char	*buffer;
 	char		*line;
 
-	if (fd < 0 || BUFFER_SIZE <= 0 || BUFFER_SIZE >= 2147483647)
-		return (NULL);
+	if (fd < 0 || BUFFER_SIZE <= 0)
+		return (free(buffer), NULL);
 	if (!buffer)
 		buffer = ft_strdup("");
 	buffer = read_to_buffer(fd, buffer);
