@@ -13,15 +13,14 @@ This project focuses on **window management, rendering images, and event handlin
 - 🎨 **Graphical interface using MiniLibX**
 - 🏆 **Collectibles & animated sprites**
 - 🚪 **Exit opens when all collectibles are collected**
-- ❌ **Enemies patrol or chase the player**
+- ❌ **Player loses if he touches enemies**
 - 🏁 **Valid path checking to ensure a solvable map**
-- 🖥 **Memory leak-free (checked with Valgrind)**
 
 ---
 
 ## ⚙️ Installation & Usage
 
-### 🎠 **1. Compile the Game**
+### 🎮 **1. Compile the Game**
 Run the `Makefile`:
 ```bash
 make
