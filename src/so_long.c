@@ -6,7 +6,7 @@
 /*   By: aysadeq <aysadeq@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/10 18:32:24 by aysadeq           #+#    #+#             */
-/*   Updated: 2025/02/18 10:35:58 by aysadeq          ###   ########.fr       */
+/*   Updated: 2025/02/22 11:54:17 by aysadeq          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,7 +45,7 @@ void	initialize_game(t_data *data)
 int	validate_and_load_map(t_data *data, char *map_file)
 {
 	if (!is_valid_file_extension(map_file))
-		return (print_error("Error: Invalid file: (filename.ber)\n"), 0);
+		return (0);
 	data->map = load_map(map_file, data);
 	if (!data->map)
 		return (print_error("Error: Failed to load map!\n"), 0);

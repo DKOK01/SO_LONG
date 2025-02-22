@@ -6,7 +6,7 @@
 /*   By: aysadeq <aysadeq@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/12 09:09:40 by aysadeq           #+#    #+#             */
-/*   Updated: 2025/02/15 14:57:01 by aysadeq          ###   ########.fr       */
+/*   Updated: 2025/02/22 12:09:21 by aysadeq          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,7 +47,11 @@ int	is_valid_file_extension(char *filename)
 	int	len;
 
 	len = ft_strlen(filename);
-	if (len <= 4 || ft_strcmp(filename + len - 4, ".ber") != 0)
-		return (0);
+	if (len < 5)
+		return (print_error("Error: Invalid filename: (filename.ber)\n"), 0);
+	if (ft_strcmp(filename + len - 4, ".ber") != 0)
+		return (print_error("Error: Invalid file extension!\n"), 0);
+	if (filename[len - 5] == '/')
+		return (print_error("Error: Invalid filename: (filename.ber)\n"), 0);
 	return (1);
 }
