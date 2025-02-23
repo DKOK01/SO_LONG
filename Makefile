@@ -11,6 +11,8 @@ all: $(NAME)
 $(NAME): $(OBJ)
 	$(CC) $(CFLAGS) $(OBJ) $(MLXFLAGS) -o $(NAME)
 
+bonus: all
+
 %.o: %.c
 	$(CC) $(CFLAGS) -c $< -o $@
 
